@@ -35,7 +35,11 @@ $earth = new Earth(7.5);
 $mars->visit();
 $earth->visit();
 
-//övning 4
+//övning 5.4, 6.3-4
+
+interface iNoiseMaker {
+	public function makeNoise();
+}
 
 abstract class Animal {
 	protected $eyeCount;
@@ -66,58 +70,106 @@ class Tuna extends Fish {
 	}
 }
 
-class Bear extends Mammal {
+class Bear extends Mammal implements iNoiseMaker {
+	public function makeNoise() {
+		echo "Björnen låter grooawl <br>";
+	}
 	public $furColor;
+}
+
+class Dog extends Mammal implements iNoiseMaker {
+	public function makeNoise() {
+		echo "Hunden låter voff <br>";
+	}
+}
+class Robot implements iNoiseMaker {
+	public function makeNoise() {
+		echo "Roboten låter gnarl <br>";
+	}
 }
 
 $bear = new Bear();
 $tuna = new Tuna();
+$dog = new Dog();
+$robot = new Robot();
 $bear->printAnimal();
+$bear->makeNoise();
 $tuna->printAnimal();
+$dog->makeNoise();
+$robot->makeNoise();
 
-// övning 5-7
+// övning 5.5-7
 
-class Vehicle {
-	public function goTo($destination) {
+abstract class Vehicle {
+	public function __construct($destination) {
 		echo "Färdas till $destination <br>";
 	}
+	/*public function goTo($destination) {
+		echo "Färdas till $destination <br>";
+	}*/
 }
 
 class Bicycle extends Vehicle {
+	public function __construct($destination) {
+		parent::__construct($destination);
+		echo "Färdas med cykel till $destination <br>";
+	}
 	/*public function goTo($destination) {
-		echo "Färdas till $destination.<br>";
+		echo "Färdas med cykel till $destination.<br>";
+		parent::goTo($destination);
 	}*/
 }
 
 class Car extends Vehicle {
+	public function __construct($destination) {
+		parent::__construct($destination);
+		echo "Färdas med bil till $destination <br>";
+	}
 	/*public function goTo($destination) {
-		echo "Färdas till $destination.<br>";
+		echo "Färdas med bil till $destination.<br>";
+		parent::goTo($destination);
 	}*/
 }
 
 class Boat extends Vehicle {
+	public function __construct($destination) {
+		parent::__construct($destination);
+		echo "Färdas med båt till $destination <br>";
+	}
 	/*public function goTo($destination) {
-		echo "Färdas till $destination.<br>";
+		echo "Färdas med båt till $destination.<br>";
+		parent::goTo($destination);
 	}*/
 }
 
 class Motorboat extends Boat {
+	public function __construct($destination) {
+		parent::__construct($destination);
+		echo "Färdas med motorbåt till $destination.<br>";
+	}
 	/*public function goTo($destination) {
-		echo "Färdas till $destination.<br>";
+		echo "Färdas med motorbåt till $destination.<br>";
+		parent::goTo($destination);
 	}*/
 }
 
 class Sail extends Boat {
+	public function __construct($destination) {
+		parent::__construct($destination);
+		echo "Färdas med segelbåt till $destination.<br>";
+	}
 	/*public function goTo($destination) {
-		echo "Färdas till $destination.<br>";
+		echo "Färdas med segelbåt till $destination.<br>";
+		parent::goTo($destination);
 	}*/
 }
 
-$bicycle1 = new Bicycle();
-$bicycle1->goTo('Paris');
-$car1 = new Car();
-$car1->goTo('Rom');
-$boat1 = new Motorboat();
-$boat1->goTo('London');
-$boat2 = new Sail();
-$boat2->goTo('Copenhagen');
+$bicycle1 = new Bicycle('Paris');
+//$bicycle1->goTo('Paris');
+$car1 = new Car('Rom');
+//$car1->goTo('Rom');
+$boat = new Boat('Rio');
+$boat1 = new Motorboat('London');
+//$boat1->goTo('London');
+$boat2 = new Sail('Copenhagen');
+//$boat2->goTo('Copenhagen');

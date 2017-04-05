@@ -29,7 +29,7 @@
 			}
 		}
 		public function makePancakes() {
-			for ($i=0; $i <= count($this->makeSinglePancake()) ; $i++) {
+			for ($i=0; $i <= count($this->canMakeSinglePancake()) ; $i++) {
 				if ($this->makeSinglePancake()) {
 					$this->flour = $this->flour - 2.5/8;
 					$this->milk = $this->milk - 6/8;
@@ -42,10 +42,10 @@
 	}
 
 	$pancake1 = new PancakeRecipe();
-	$pancake1->flour 	= 5;
-	$pancake1->milk 	= 12;
-	$pancake1->egg 		= 6;
-	$pancake1->salt 	= 1;
-	$pancake1->butter 	= 4;
+	$pancake1->flour 	= 2.5;
+	$pancake1->milk 	= 6;
+	$pancake1->egg 		= 3;
+	$pancake1->salt 	= 0.5;
+	$pancake1->butter 	= 2;
 
 	$pancake1->makePancakes();
