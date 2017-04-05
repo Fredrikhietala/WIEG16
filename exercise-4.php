@@ -10,5 +10,5 @@ $array = explode(" ", $string);
 $arr = array_count_values($array);
 arsort($arr);
 foreach ($arr as $value => $count) {
-	echo "$value - $count <br>";
+	printf("Ordet %s förekommer %u gånger <br>", $value, $count);
 }
