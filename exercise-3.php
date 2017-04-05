@@ -9,5 +9,5 @@ $string = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque
 $array = explode(" ", $string);
 $arr = array_count_values($array);
 foreach ($arr as $value => $count) {
-	echo "$value - $count <br>\n";
+	printf("%s - %u <br>", $value, $count);
 }
