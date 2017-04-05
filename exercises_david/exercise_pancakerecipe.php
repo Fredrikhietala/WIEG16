@@ -21,23 +21,21 @@
 		public function makeSinglePancake() {
 			if ($this->canMakeSinglePancake()) {
 				echo "En pannkaka klar, mums <br>";
-				return true;
 			}		
 			else {
 				echo "Inte tillräckligt med ingredienser <br>";
-				return false;
 			}
 		}
 		public function makePancakes() {
-			for ($i=0; $i <= count($this->canMakeSinglePancake()) ; $i++) {
-				if ($this->makeSinglePancake()) {
+
+			do {
+				echo $this->makeSinglePancake();
 					$this->flour = $this->flour - 2.5/8;
 					$this->milk = $this->milk - 6/8;
 					$this->egg = $this->egg - 3/8;
 					$this->salt = $this->salt - 0.5/8;
 					$this->butter = $this->butter - 2/8;
-				}
-			}
+			} while ($this->canMakeSinglePancake());
 		}
 	}
 
